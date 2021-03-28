@@ -1,0 +1,8 @@
+#This requires Git version 2.22+ to work, simply add to .bashrc, not a bad idea to comment out existing shell prompt code block.
+
+# Set shell prompt for Hostname|Working Director|Git Branch
+if [ `git --version | sed 's/git version [0-9]\.\([[:digit:]]\+\)\.[[:digit:]]/\1/'` -gt 22 ]; then
+	gb() { git branch --show-current 2>/dev/null; }
+	export PS1='\e[0;36m\h\e[0m|\e[0;35m\W\e[0m|\e[0;32m$(gb)\e[0m $ '
+fi
+
